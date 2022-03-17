@@ -206,7 +206,6 @@ int main (int argc, char **argv)
     static struct sigaction act =
     {
         .sa_sigaction = child_exit,
-        .sa_mask = 0,
         .sa_flags = SA_NOCLDSTOP | SA_SIGINFO
     };
 
@@ -281,6 +280,7 @@ int main (int argc, char **argv)
         mode = MODE_DATA;
     }
 
+    sigemptyset(&act.sa_mask);
     if (sigaction (SIGCHLD, &act, NULL) != 0)
     {
         error (0, errno, _("can't register signal hanlder"));
