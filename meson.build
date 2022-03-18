@@ -1,4 +1,4 @@
-project('syncp', 'c', version: 'v0.1-dev')
+project('syncp', 'c', version: 'v0.3-dev')
 
 # E-mail to insert to .pot file
 email = 'akemi_homura@kurisa.ch'
@@ -19,7 +19,17 @@ if meson.get_compiler('c').has_function('syncfs', prefix : '#include <unistd.h>'
     add_global_arguments('-DHAVE_SYNCFS=1', language : 'c')
 endif
 
+# Internationalization support
 subdir('po')
 localedir = get_option('prefix') / get_option('localedir')
+
+# Generate documentation
+ronn = find_program('ronn', required: false)
+if ronn.found()
+    custom_target('doc-man', input : files('syncp.1.ronn'), output : 'syncp.1', build_by_default : true, command : [ronn, '--output-dir', '@OUTDIR@', '--roff', '@INPUT@'], install : true, install_dir: get_option('mandir') / 'man1')
+    custom_target('readme', input : files('syncp.1.ronn'), output : 'README.md', capture: true, command : [ronn, '--pipe', '--markdown', '@INPUT@'])
+else
+
+endif
 
 executable('syncp', 'syncp.c', install : true, c_args: ['-DPROG_NAME="' + meson.project_name() + '"', '-DPROG_VERSION="' + ver + '"', '-DLOCALEDIR="' + localedir + '"'])
