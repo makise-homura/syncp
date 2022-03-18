@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the syncp package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: syncp v0.1-1-g8b83b35-dirty\n"
+"Report-Msgid-Bugs-To: akemi_homura@kurisa.ch\n"
+"POT-Creation-Date: 2022-03-18 03:52+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: syncp.c:62
+#, c-format
+msgid "Try '%s --help' for more information.\n"
+msgstr ""
+
+#: syncp.c:66
+#, c-format
+msgid "Usage: %s [OPTION] [FILE]...\n"
+msgstr ""
+
+#: syncp.c:67
+msgid ""
+"Synchronize cached writes to persistent storage\n"
+"\n"
+"If one or more files are specified, sync only them,\n"
+"or their containing file systems.\n"
+"\n"
+"When syncing, display size of remaining data to sync.\n"
+"\n"
+msgstr ""
+
+#: syncp.c:68
+msgid "  -d, --data             sync only file data, no unneeded metadata\n"
+msgstr ""
+
+#: syncp.c:69
+msgid "  -f, --file-system      sync the file systems that contain the files\n"
+msgstr ""
+
+#: syncp.c:70
+msgid ""
+"  -t, --timeout N        timeout (in seconds) when to exit if sync still not "
+"finished\n"
+msgstr ""
+
+#: syncp.c:71
+msgid "  -p, --period N         period (in seconds) to check buffers size\n"
+msgstr ""
+
+#: syncp.c:72
+msgid "  -h, --help             display this help and exit\n"
+msgstr ""
+
+#: syncp.c:73
+msgid "  -v, --version          output version information and exit\n"
+msgstr ""
+
+#: syncp.c:107
+#, c-format
+msgid "error opening \"%s\""
+msgstr ""
+
+#: syncp.c:116
+#, c-format
+msgid "couldn't reset non-blocking mode \"%s\""
+msgstr ""
+
+#: syncp.c:146
+#, c-format
+msgid "error syncing \"%s\""
+msgstr ""
+
+#: syncp.c:153
+#, c-format
+msgid "failed to close \"%s\""
+msgstr ""
+
+#: syncp.c:233
+#, c-format
+msgid "wrong timeout argument %s"
+msgstr ""
+
+#: syncp.c:241
+#, c-format
+msgid "wrong period argument %s"
+msgstr ""
+
+#: syncp.c:250
+#, c-format
+msgid "%s version %s\n"
+msgstr ""
+
+#: syncp.c:263
+msgid "cannot specify both --data and --file-system"
+msgstr ""
+
+#: syncp.c:268
+msgid "--data needs at least one argument"
+msgstr ""
+
+#: syncp.c:291
+msgid "can't register signal handler"
+msgstr ""
+
+#: syncp.c:320
+msgid "unknown"
+msgstr ""
+
+#: syncp.c:339
+#, c-format
+msgid "%cDirty: %s, Writeback: %s, processes: %d"
+msgstr ""
+
+#: syncp.c:352
+#, c-format
+msgid "\n"
+msgstr ""
+
+#: syncp.c:356
+msgid "timeout is exceeded, probably still syncing"
+msgstr ""
+
+#: syncp.c:361
+msgid "can't sync some data"
+msgstr ""

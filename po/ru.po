@@ -1,0 +1,144 @@
+# Russian translations for syncp package.
+# Copyright (C) 2022 Igor Molchanov <akemi_homura@kurisa.ch>
+# This file is distributed under the same license as the syncp package.
+# Automatically generated, 2022.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: syncp v0.1-1-g8b83b35-dirty\n"
+"Report-Msgid-Bugs-To: akemi_homura@kurisa.ch\n"
+"POT-Creation-Date: 2022-03-18 03:52+0300\n"
+"PO-Revision-Date: 2022-03-18 03:39+0300\n"
+"Last-Translator: Igor Molchanov <akemi_homura@kurisa.ch>\n"
+"Language-Team: none\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: syncp.c:62
+#, c-format
+msgid "Try '%s --help' for more information.\n"
+msgstr "Выполните '%s --help' для получения справки.\n"
+
+#: syncp.c:66
+#, c-format
+msgid "Usage: %s [OPTION] [FILE]...\n"
+msgstr "Использование: %s [ОПЦИЯ] [ФАЙЛ]...\n"
+
+#: syncp.c:67
+msgid ""
+"Synchronize cached writes to persistent storage\n"
+"\n"
+"If one or more files are specified, sync only them,\n"
+"or their containing file systems.\n"
+"\n"
+"When syncing, display size of remaining data to sync.\n"
+"\n"
+msgstr ""
+"Синхронизирует кэшированные запросы на постоянные носители\n"
+"\n"
+"Если указаны один или несколько файлов, то синхронизирует\n"
+"только их, или файловые системы, где они расположены.\n"
+"\n"
+"В процессе синхронизации показывает, сколько ещё осталось синхронизировать.\n"
+"\n"
+
+#: syncp.c:68
+msgid "  -d, --data             sync only file data, no unneeded metadata\n"
+msgstr "  -d, --data             синхронизировать только данные, без метаданных\n"
+
+#: syncp.c:69
+msgid "  -f, --file-system      sync the file systems that contain the files\n"
+msgstr "  -f, --file-system      синхронизировать файловые системы, содержащие файлы\n"
+
+#: syncp.c:70
+msgid ""
+"  -t, --timeout N        timeout (in seconds) when to exit if sync still not "
+"finished\n"
+msgstr ""
+"  -t, --timeout N        таймаут (в секундах), после которого выйти, даже если "
+"синхронизация не завершена\n"
+
+#: syncp.c:71
+msgid "  -p, --period N         period (in seconds) to check buffers size\n"
+msgstr "  -p, --period N         период (в секундах) для проверки размера буферов\n"
+
+#: syncp.c:72
+msgid "  -h, --help             display this help and exit\n"
+msgstr "  -h, --help             показать эту справку и выйти\n"
+
+#: syncp.c:73
+msgid "  -v, --version          output version information and exit\n"
+msgstr "  -v, --version          показать версию и выйти\n"
+
+#: syncp.c:107
+#, c-format
+msgid "error opening \"%s\""
+msgstr "невозможно открыть \"%s\""
+
+#: syncp.c:116
+#, c-format
+msgid "couldn't reset non-blocking mode \"%s\""
+msgstr "невозможно сбросить неблокирующий режим \"%s\""
+
+#: syncp.c:146
+#, c-format
+msgid "error syncing \"%s\""
+msgstr "ошибка синхронизации \"%s\""
+
+#: syncp.c:153
+#, c-format
+msgid "failed to close \"%s\""
+msgstr "невозможно закрыть \"%s\""
+
+#: syncp.c:233
+#, c-format
+msgid "wrong timeout argument %s"
+msgstr "неверный таймаут: %s"
+
+#: syncp.c:241
+#, c-format
+msgid "wrong period argument %s"
+msgstr "неверный период: %s"
+
+#: syncp.c:250
+#, c-format
+msgid "%s version %s\n"
+msgstr "%s, версия %s\n"
+
+#: syncp.c:263
+msgid "cannot specify both --data and --file-system"
+msgstr "нельзя задавать одновременно --data и --file-system"
+
+#: syncp.c:268
+msgid "--data needs at least one argument"
+msgstr "--data требует как минимум один аргумент"
+
+#: syncp.c:291
+msgid "can't register signal handler"
+msgstr "невозможно зарегистрировать обработчик сигнала"
+
+#: syncp.c:320
+msgid "unknown"
+msgstr "неизвестно"
+
+#: syncp.c:339
+#, c-format
+msgid "%cDirty: %s, Writeback: %s, processes: %d"
+msgstr "%cНе записано: %s, записывается: %s, процессов осталось: %d"
+
+#: syncp.c:352
+#, c-format
+msgid "\n"
+msgstr "\n"
+
+#: syncp.c:356
+msgid "timeout is exceeded, probably still syncing"
+msgstr "таймаут превышен, возможно, всё ещё синхронизируемся"
+
+#: syncp.c:361
+msgid "can't sync some data"
+msgstr "невозможно синхронизировать какие-то данные"

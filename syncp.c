@@ -12,6 +12,7 @@
 #include <signal.h>
 #include <fcntl.h>
 
+#include <locale.h>
 #include <libintl.h>
 #define _(String) gettext (String)
 
@@ -209,6 +210,10 @@ int main (int argc, char **argv)
         .sa_flags = SA_NOCLDSTOP | SA_SIGINFO
     };
 
+    setlocale (LC_ALL, "");
+    bindtextdomain (PROG_NAME, LOCALEDIR);
+    textdomain (PROG_NAME);
+
     while ((c = getopt_long (argc, argv, "dft:p:hv", long_options, NULL)) != -1)
     {
         switch (c)
@@ -283,7 +288,7 @@ int main (int argc, char **argv)
     sigemptyset(&act.sa_mask);
     if (sigaction (SIGCHLD, &act, NULL) != 0)
     {
-        error (0, errno, _("can't register signal hanlder"));
+        error (0, errno, _("can't register signal handler"));
     }
 
     if (mode == MODE_SYNC)
@@ -331,7 +336,7 @@ int main (int argc, char **argv)
             }
             fclose (f);
         }
-        printf (_("\rDirty: %s, Writeback: %s, processes: %d"), dirty, writeback, childs);
+        printf (_("%cDirty: %s, Writeback: %s, processes: %d"), '\r', dirty, writeback, childs);
         if (childs < 1)
         {
             break;
