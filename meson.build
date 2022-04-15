@@ -29,7 +29,7 @@ if ronn.found()
     custom_target('doc-man', input : files('syncp.1.ronn'), output : 'syncp.1', build_by_default : true, command : [ronn, '--output-dir', '@OUTDIR@', '--roff', '@INPUT@'], install : true, install_dir: get_option('mandir') / 'man1')
     custom_target('readme', input : files('syncp.1.ronn'), output : 'README.md', capture: true, command : [ronn, '--pipe', '--markdown', '@INPUT@'])
 else
-
+    warning('ronn program not found, documentation will not be generated')
 endif
 
 executable('syncp', 'syncp.c', install : true, c_args: ['-DPROG_NAME="' + meson.project_name() + '"', '-DPROG_VERSION="' + ver + '"', '-DLOCALEDIR="' + localedir + '"'])

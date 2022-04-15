@@ -227,16 +227,18 @@ int main (int argc, char **argv)
                 break;
 
             case 't':
+                endp = NULL;
                 timeout = strtol(optarg,&endp,0);
-                if(!endp || !*endp)
+                if(!endp || *endp)
                 {
                     error (0, errno, _("wrong timeout argument %s"), optarg);
                 }
                 break;
 
             case 'p':
+                endp = NULL;
                 period = strtol(optarg,&endp,0);
-                if(!endp || !*endp)
+                if(!endp || *endp)
                 {
                     error (0, errno, _("wrong period argument %s"), optarg);
                 }
