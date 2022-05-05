@@ -188,6 +188,7 @@ int main (int argc, char **argv)
     int c;
     int args_specified;
     int arg_data = 0, arg_file_system = 0;
+    int printed_before = 0, printed_now;
     enum sync_mode mode;
     char *endp;
     int timeout = 0;
@@ -338,7 +339,13 @@ int main (int argc, char **argv)
             }
             fclose (f);
         }
-        printf (_("%cDirty: %s, Writeback: %s, processes: %d"), '\r', dirty, writeback, childs);
+        printed_now = printf (_("%cDirty: %s, Writeback: %s, processes: %d"), '\r', dirty, writeback, childs);
+        if (printed_now < 0) printed_now = 0;
+        if (printed_now < printed_before)
+        {
+            printf("%*s", printed_before - printed_now, "");
+        }
+        printed_before = printed_now;
         if (childs < 1)
         {
             break;
