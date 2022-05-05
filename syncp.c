@@ -22,6 +22,16 @@
 #define HAVE_SYNCFS 0
 #endif
 
+#ifndef HAVE_UNUSED
+#define HAVE_UNUSED 0
+#endif
+
+#if HAVE_UNUSED
+#define ATTR_UNUSED __attribute__((unused))
+#else
+#define ATTR_UNUSED
+#endif
+
 enum sync_mode
 {
   MODE_FILE,
@@ -160,7 +170,7 @@ static int sync_arg (enum sync_mode mode, char const *file)
 static int ret = 0;
 static int childs = 0;
 
-void child_exit(int sig, siginfo_t *info, void *ucontext)
+void child_exit(int sig ATTR_UNUSED, siginfo_t *info, void *ucontext ATTR_UNUSED)
 {
     ret |= info->si_status;
     --childs;

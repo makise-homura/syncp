@@ -14,9 +14,16 @@ if git.found()
 endif
 message('determined version ' + ver)
 
+cc = meson.get_compiler('c')
+
 # Test for syncfs existence
-if meson.get_compiler('c').has_function('syncfs', prefix : '#include <unistd.h>')
+if cc.has_function('syncfs', prefix : '#include <unistd.h>')
     add_global_arguments('-DHAVE_SYNCFS=1', language : 'c')
+endif
+
+# Test for unused attribute
+if cc.has_function_attribute('unused')
+    add_global_arguments('-DHAVE_UNUSED=1', language : 'c')
 endif
 
 # Internationalization support
