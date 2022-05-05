@@ -346,6 +346,7 @@ int main (int argc, char **argv)
             printf("%*s", printed_before - printed_now, "");
         }
         printed_before = printed_now;
+        fflush(stdout);
         if (childs < 1)
         {
             break;
